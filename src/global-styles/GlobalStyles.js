@@ -1,0 +1,23 @@
+import { createGlobalStyle } from 'styled-components'
+
+export const GlobalStyles = createGlobalStyle`
+  *,
+  ::before,
+  ::after {
+    box-sizing: inherit;
+    margin: 0;
+    padding: 0;
+  }
+  html {
+    font-size: 62.5%;
+    scroll-behavior: smooth;
+  }
+  body {
+    background: ${({ theme }) => theme.white};
+    box-sizing: border-box;
+    color: ${({ theme }) => theme.black};
+    font-family: "Lota Grotesque", Avenir, Arial, sans-serif;
+    font-size:  ${({ theme }) => theme.fontSize.medium};
+    overflow-x: hidden;
+  }
+`
