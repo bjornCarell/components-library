@@ -18,6 +18,7 @@ export const GlobalStyles = createGlobalStyle`
     color: ${({ theme }) => theme.black};
     font-family: "Lota Grotesque", Avenir, Arial, sans-serif;
     font-size:  ${({ theme }) => theme.fontSize.medium};
+    line-height: 1.2;
     overflow-x: hidden;
   }
 `

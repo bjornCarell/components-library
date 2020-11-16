@@ -10,23 +10,31 @@ export const ButtonStyled = styled.button`
         ? ({theme}) => theme.animation.radiusL
         : ({theme}) => theme.animation.radiusM
     )};
+    box-shadow: ${props => {
+        if(props.noShadow) return 'none';
+        if(props.around) return ({theme}) => theme.animation.shadowAround;
+        return ({theme}) => theme.animation.shadowBottom;
+    }};
     color: ${({theme}) => theme.color.white};
     cursor: pointer;
     font-size: ${props => {
         if(props.large) return ({theme}) => theme.fontSize.large;
         if(props.small) return ({theme}) => theme.fontSize.small;
     }};
-    padding: ${({theme}) => theme.spacing.small} ${({theme}) => theme.spacing.medium};
+    font-weight: ${({theme}) => theme.fontWeight.large};
+    padding: 1.2rem 2.4rem;
+    transition:${({theme}) => theme.animation.transition};
 
     &:hover{
         background-color: ${props => (props.secondary 
             ? ({theme}) => theme.color.secondaryDark 
             : ({theme}) => theme.color.primary
         )}; 
-        box-shadow: ${props => (props.hoverShadow
-            ? ({theme}) => theme.animation.boxShadowAround
-            : 'none'
-        )};
+        box-shadow: ${props => {
+            if(props.noShadow) return 'none';
+            if(props.around) return ({theme}) => theme.animation.shadowAroundHover;
+            return ({theme}) => theme.animation.shadowBottomHover;
+        }};
     }
 
     ${props => {
@@ -34,20 +42,32 @@ export const ButtonStyled = styled.button`
             props.inverse &&
             css`
                 background-color: ${({theme}) => theme.color.white};
-                border: 1px solid;
                 color: ${props => (props.secondary 
                     ? ({theme}) => theme.color.secondary 
                     : ({theme}) => theme.color.primaryLight
                 )};
                 &:hover{
-                border: 1px solid transparent;
-                background-color: ${props => (props.secondary 
-                    ? ({theme}) => theme.color.secondary 
-                    : ({theme}) => theme.color.primary
-                )};
-                color: ${({theme}) => theme.color.white};
-              }      
+                    background-color: ${props => (props.secondary 
+                        ? ({theme}) => theme.color.secondary 
+                        : ({theme}) => theme.color.primary
+                    )};
+                    color: ${({theme}) => theme.color.white};
+                }      
             `
          )
-    }}
+    }};
+
+    ${props => {
+        return (
+            props.simple && 
+            css`
+                background-color: ${({theme}) => theme.color.white};
+                color:${({theme}) => theme.color.black};
+
+                &:hover{
+                    background-color: ${({theme}) => theme.color.white};
+                }      
+            `
+        )
+    }};
 `

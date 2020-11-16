@@ -33,10 +33,13 @@ export const theme = {
         xl: 800,
       },
     animation: {
-        boxShadowAround: '0px 4px 8px 0 rgba(0,0,0,0.08);',
-        boxShadowBottom: 'rgba(0, 0, 0, 0.13) 0px 0px 10px 0px',
+        shadowAround:'rgba(0, 0, 0, 0.13) 0px 0px 10px 0px',
+        shadowAroundHover: 'rgba(0, 0, 0, 0.13) 0px 0px 16px 0px',
+        shadowBottom: '0px 4px 8px 0 rgba(0,0,0,0.08)',
+        shadowBottomHover: '0px 8px 8px 0 rgba(0,0,0,0.08)',
         radiusS: '0.375rem',
         radiusM: '0.875rem',
-        radiusL: '2rem'
+        radiusL: '2rem',
+        transition: 'all .25s cubic-bezier(0.4, 0, 0.2, 1)',
     },
 }

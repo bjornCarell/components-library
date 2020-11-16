@@ -35,11 +35,22 @@ export const FlexContainer = styled.div`
     }};
 `
 
-export const FlexColumn = styled.div`
-    padding: ${props => (props.noPadding ? 0 : '1.5rem')};
-    width: ${props => {
-        if (props.three) return '33.33%';
-        if (props.four) return '25%';
-        return '50%'
+export const FlexItem = styled(FlexContainer)`
+    flex: ${props => {
+        if(props.flexNone) return 0;
+        if(props.flexTwo) return 2;
+        if(props.flexThree) return 3;
+        return 1
     }};
+    padding: ${props => (props.noPadding ? 0 : '1.5rem')};
 `
+
+export const FlexColumn = styled(FlexItem)`
+    width: ${props => {
+    if(props.two) return '50%'
+    if (props.three) return '33.33%';
+    if (props.four) return '25%';
+    return '100%'
+}};
+`
+
