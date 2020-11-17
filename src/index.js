@@ -4,7 +4,7 @@ import { ThemeProvider } from 'styled-components';
 import {theme} from './theme/theme';
 import {GlobalStyles} from './global-styles/GlobalStyles';
 import {Container} from './components/container/Container';
-import { FlexContainer, FlexItem,FlexColumn } from './components/flex/FlexStyled';
+import { FlexContainer, FlexItem,FlexColumn } from './components/flex/Flex';
 import {Button} from './components/button/Button';
 import {Heading} from './components/heading/Heading';
 
@@ -14,11 +14,13 @@ ReactDOM.render(
       <GlobalStyles/>
       <Container>
         <Heading h2>Components Library</Heading>
-      <FlexContainer column>
-        <FlexColumn justifyEnd>Hello</FlexColumn>
-        <FlexColumn justifyCenter>Hey</FlexColumn>
-        <FlexColumn>Hi</FlexColumn>
-        <FlexColumn justifyCenter>What up</FlexColumn>
+      <FlexContainer 
+        justifyContent="center"
+      >
+        <FlexItem justifyContent="flex-end">Hello</FlexItem>
+        <FlexItem >Hey</FlexItem>
+        <FlexItem>Hi</FlexItem>
+        <FlexItem >What up</FlexItem>
       </FlexContainer>
       <Button round>Testing this button</Button>
       </Container>
